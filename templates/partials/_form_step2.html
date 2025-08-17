@@ -1,0 +1,47 @@
+<div class="form-step" id="step2" style="display:none;">
+    <h2>Step 2: Job Descriptions</h2>
+    
+    {% for jd_num in range(1, 4) %}
+    <div class="jd-form">
+        <h3>Job Description {{ jd_num }}</h3>
+        
+        <div class="form-group">
+            <label for="jd{{ jd_num }}">Paste Job Description {{ jd_num }}:</label>
+            <textarea name="jd{{ jd_num }}" id="jd{{ jd_num }}" required></textarea>
+        </div>
+        
+        {% for stack_num in range(1, 4) %}
+        <div class="tech-stack">
+            <div class="form-group">
+                <label for="jd{{ jd_num }}_stack{{ stack_num }}">Tech Stack {{ stack_num }} Name:</label>
+                <input type="text" name="jd{{ jd_num }}_stack{{ stack_num }}" 
+                       id="jd{{ jd_num }}_stack{{ stack_num }}" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="jd{{ jd_num }}_stack{{ stack_num }}_bullets">
+                    6 Bullet Points for Tech Stack {{ stack_num }} (one per line):
+                </label>
+                <textarea name="jd{{ jd_num }}_stack{{ stack_num }}_bullets" 
+                          id="jd{{ jd_num }}_stack{{ stack_num }}_bullets" 
+                          class="bullet-points" required></textarea>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    {% endfor %}
+    
+    <div class="form-group">
+        <label>Anchor Method:</label>
+        <div class="radio-group">
+            <label>
+                <input type="radio" name="anchor_method" value="placeholders" checked>
+                Use Placeholder Anchors ({{PROJECTX_RESP}})
+            </label>
+            <label>
+                <input type="radio" name="anchor_method" value="heuristics">
+                Use Heuristic Detection
+            </label>
+        </div>
+    </div>
+</div>

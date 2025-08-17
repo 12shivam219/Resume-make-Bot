@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block title %}Resume Processing{% endblock %}
+
+{% block content %}
+    <form method="post" enctype="multipart/form-data" id="resumeForm">
+        <!-- Step 1: Resume Upload -->
+        {% include "partials/_form_step1.html" %}
+
+        <!-- Step 2: Job Description Input -->
+        {% include "partials/_form_step2.html" %}
+
+        <!-- Step 3: Email Settings -->
+        {% include "partials/_form_step3.html" %}
+
+        <div class="step-navigation">
+            <button type="button" class="btn btn-prev" style="display: none;">Previous</button>
+            <button type="submit" class="btn btn-next">Next</button>
+        </div>
+    </form>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+    // Additional form validation can go here
+</script>
+{% endblock %}

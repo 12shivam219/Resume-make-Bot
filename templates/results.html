@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block title %}Processing Complete{% endblock %}
+
+{% block content %}
+    <div class="results-container">
+        <h2>Resume Processing Complete</h2>
+        <p>Your resumes have been successfully processed and emails have been sent.</p>
+        
+        <div class="processed-files">
+            <h3>Processed Files:</h3>
+            {% for file in files %}
+                <div class="result-file">
+                    <p>{{ file.split('/')[-1] }}</p>
+                    <a href="{{ url_for('main.download_file', filename=file.split('/')[-1]) }}" 
+                       class="btn btn-download">
+                        Download
+                    </a>
+                </div>
+            {% endfor %}
+        </div>
+
+        <div class="actions">
+            <a href="{{ url_for('main.index') }}" class="btn btn-primary">
+                Process More Resumes
+            </a>
+        </div>
+    </div>
+{% endblock %}
